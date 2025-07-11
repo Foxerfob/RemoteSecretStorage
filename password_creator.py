@@ -2,6 +2,7 @@
 import secrets
 import random
 from security import hash_password
+import settings
 
 def get_passwords():
     true_password = input("True password: ")
@@ -18,7 +19,7 @@ def write_file(true_pw, false_pws):
     all_hashes = [true_hash] + false_hashes
     random.shuffle(all_hashes)
     
-    with open("passwords.txt", "w") as f:
+    with open(PASSWORD_FILE, "w") as f:
         f.write(salt.hex() + "\n")
         for h in all_hashes:
             f.write(h + "\n")    

@@ -2,13 +2,10 @@
 import hashlib
 from flask import Flask
 from security import check_password, delete_file
+import settings
 
 app = Flask(__name__)
 
-END_POINT = "ENDPOINT"
-SECRET_FILE ="secret.txt"
-PASSWORD_FILE = "passwords.txt"
-            
 @app.route(f"/{END_POINT}/get/<password>")
 def get_secret(password): 
     password_code = check_password(password, PASSWORD_FILE)

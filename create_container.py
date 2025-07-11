@@ -7,11 +7,7 @@ import hashlib
 import base64
 from security import generate_strong_password
 from cryptography.fernet import Fernet
-
-SERVER_URL = "http://localhost:5000"
-END_POINT = "ENDPOINT"
-CONTAINER_FILE = "secure_container.bin"
-CONTAINER_SIZE = "512" #MB
+import settings
 
 def create_luks_container():
     subprocess.run(["dd", "if=/dev/zero", f"of={CONTAINER_FILE}", "bs=1M", f"count={CONTAINER_SIZE}"], 

@@ -6,11 +6,7 @@ import getpass
 import hashlib
 import base64
 from cryptography.fernet import Fernet, InvalidToken
-
-SERVER_URL = "http://localhost:5000"
-END_POINT = "ENDPOINT"
-CONTAINER_FILE = "secure_container.bin"
-MAPPER_NAME = "secure_volume"
+import settings
 
 def main():
     print("=== Opening a secure container ===")
